@@ -48,3 +48,19 @@ while True:
     if rand == 1:
         print("Moving mouse randomly, to prevent detection!")
         pyautogui.moveTo(random.randint(250, 1150), random.randint(133,920), random.random(), pyautogui.easeOutQuad)
+    if rand == 2:
+        print("Making some moves Ingame to prevent detection!")
+        rand1 = random.randint(0,1)
+        if rand1 == 0:
+            key1 = "s"
+            key2 = "w"
+        if rand1 == 1:
+            key1 = "d"
+            key2 = "a"
+        randomtime = random.randint(1,4)/10
+        pyautogui.keyDown(key1)
+        time.sleep(randomtime)
+        pyautogui.keyUp(key1)
+        pyautogui.keyDown(key2)
+        time.sleep(randomtime)
+        pyautogui.keyUp(key2)
