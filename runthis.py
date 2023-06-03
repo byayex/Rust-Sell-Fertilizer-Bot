@@ -38,22 +38,21 @@ while True:
         pyautogui.moveTo(random.randint(250, 1150), random.randint(133,920), random.random(), pyautogui.easeOutQuad)
         print("Moving back to idle position")
 
-
-    # Move mouse sometimes
-    rand = random.randint(0,25)
-    if rand > 20:
+    # Make random actions every cycle
+    rand = random.randint(0,100)
+    if rand > 90:
         print("Moving mouse randomly, to prevent detection!")
         pyautogui.moveTo(random.randint(250, 1150), random.randint(133,920), random.random(), pyautogui.easeOutQuad)
-    if rand == 2:
-        print("Making some moves Ingame to prevent detection!")
-        rand1 = random.randint(0,1)
+    if rand < 5:
+        print("Making some moves ingame, to prevent detection!")
+        rand1 = random.randint(0,3)
         if rand1 == 0:
-            key1 = "s"
-            key2 = "w"
+            key1 = "a"
+            key2 = "d"
         if rand1 == 1:
             key1 = "d"
             key2 = "a"
-        randomtime = random.randint(1,4)/10
+        randomtime = random.randint(1,3)/10
         pyautogui.keyDown(key1)
         time.sleep(randomtime)
         pyautogui.keyUp(key1)
@@ -61,3 +60,8 @@ while True:
         pyautogui.keyDown(key2)
         time.sleep(randomtime)
         pyautogui.keyUp(key2)
+    if rand < 50 and rand > 46:
+        print("Reopening the shop menu, to avoid a weird bug, that prevents selling.")
+        pyautogui.press('escape')
+        time.sleep(random.randint(3,6)/10)
+        pyautogui.press('e')
